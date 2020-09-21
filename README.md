@@ -9,12 +9,12 @@ This app is a set custom inputs/transforms that allows you to send "pre-cooked" 
 * I tested with confluent syslog connector e.g. above kafka_connect:port. refer to this link to install https://docs.confluent.io/current/connect/kafka-connect-syslog/index.html
 * restart splunk
 
-## Next steps
-### Filter data using KSQL
-### Confluent Kafka/Splunk Sink Connector https://docs.confluent.io/current/connect/kafka-connect-syslog/index.htm
+**Next steps**
+ * Filter data using KSQL
+ * Confluent Kafka/Splunk Sink Connector https://docs.confluent.io/current/connect/kafka-connect-syslog/index.htm
 
 
-## Additional Info
-### To learn more about Splunk queues, refer to this link https://wiki.splunk.com/Community:HowIndexingWorks
-### Potentially look at Netty Connector
-### Potentially look at Zeek for listening to TCP Port
+__Additional Info__
+ * To learn more about Splunk queues, refer to this link https://wiki.splunk.com/Community:HowIndexingWorks
+ * Potentially look at Netty Connector
+ * Potentially look at Zeek for listening to TCP Port
