@@ -139,12 +139,14 @@ You should now be able to see data in both Splunk and ElastaicSearch from the To
 - Elastic - http://localhost:5601
 
 
-**##NOTE: in this instance the props.conf is configured to forward all data to kafka, including all splunk internal data. to filter to only specific sourcetypes you can do the following:**
+**##NOTE: in this instance the props.conf is configured to forward all data to kafka, including all splunk internal data. To filter to only specific sourcetypes you can do the following:**
 ```
 docker exec -it splunk_hf bash
+sudo -i
 vi /opt/splunk/etc/apps/splunk_forward_to_kafka/local/props.conf
 change this 
 [(?::){0}*] to [(?::){0}yoursourcetype*]
+/opt/splunk/bin/splunk restart
 ```
 -TBD
 -Create eventgen with zeek data
