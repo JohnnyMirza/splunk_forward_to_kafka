@@ -126,6 +126,10 @@ CREATE SINK CONNECTOR SINK_ELASTIC WITH (
 You should now be able to see data in both Splunk and ElastaicSearch from the Topic TOHECWITHSPLUNK.
 ![image](Ksqldb.png)
 
+6. Visualise your data in splunk or Elasticsearch
+- Splunk - http://localhost:8000
+- Elastic - http://localhost:5601
+
 
 NOTE: in this instance the props.conf is configured to forward all data to kafka, including all splunk internal data. to filter to only specific sourcetypes you can do the following:
 ```docker exec -it splunk_hf bash
