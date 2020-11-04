@@ -87,7 +87,7 @@ FROM SPLUNK_META SPLUNK_META
 EMIT CHANGES;
 ```
 
-3. Stream the data to Splunk with Kafka Connect
+3. Stream the data to Splunk with Kafka Connect.
 I'm using ksqlDB to create the connector but you can use the Kafka Connect REST API directly if you want to. Kafka Connect is part of Apache Kafka and you don't have to use ksqlDB to use Kafka Connect.
 
 [source,sql]
