@@ -1,6 +1,14 @@
 Streaming data from Splunk to Kafka using KSQLDB for filtering, while keeping all the Splunk MetaData (source,sourcetype,host,event) <jmirza@confluent.io>
 v1.00, 3 November 2020
 
+TL;DR
+```
+QuickStart
+1. git clone https://github.com/JohnnyMirza/splunk_forward_to_kafka.git
+2. docker-compose up -d
+3. Configure Splunk UF’s to send to the above instance
+```
+
 ![image](splunk_forward_to_kafka.png)
 
 This app is a set custom inputs/transforms that allows you to send "under-cooked" data to apache kafka. Spin up using Docker-Compose and just forward your UFs to the instance. 
