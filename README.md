@@ -131,7 +131,9 @@ CREATE SINK CONNECTOR SINK_ELASTIC WITH (
 ```
 
 5. configure your Splunk UF's (outputs.conf) to send data to the HF in this docker-compose instance. e.g. 192.168.1.101:9997
-You should now be able to see data in both Splunk and ElastaicSearch from the Topic TOHECWITHSPLUNK.
+You should now be able to see data in both Splunk and ElastaicSearch from the Topic TOHECWITHSPLUNK/SPLUNK_META.
+
+**Confluent KSQLDB Flow**
 ![image](Ksqldb.png)
 
 6. Visualise your data in splunk or Elasticsearch
