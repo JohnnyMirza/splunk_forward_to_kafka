@@ -94,10 +94,11 @@ I'm using ksqlDB to create the connector but you can use the Kafka Connect REST 
 ```
 CREATE SINK CONNECTOR SPLUNKSINK WITH (
   'connector.class' = 'com.splunk.kafka.connect.SplunkSinkConnector',
-  'topics' =  'TOHECWITHSPLUNK'
-  'splunk.hec.uri'  = 'http://splunk_search:8089',
+  'topics' =  'TOHECWITHSPLUNK',
+  'splunk.hec.uri'  = 'https://splunk_search:8088',
   'splunk.hec.token' = '3bca5f4c-1eff-4eee-9113-ea94c284478a',
   'value.converter' = 'org.apache.kafka.connect.storage.StringConverter',
+  'splunk.hec.ssl.validate.certs' = 'false',
   'confluent.topic.bootstrap.servers' = 'kafka:9092',
   'splunk.hec.json.event.formatted' =  'true',
   'tasks.max' =  '1'
@@ -115,7 +116,7 @@ CREATE SINK CONNECTOR SINK_ELASTIC WITH (
   'value.converter' =  'org.apache.kafka.connect.json.JsonConverter',
   'type.name'       = '_doc',
   'errors.tolerance' = 'all',
-  'topics'          = 'TOHECWITHSPLUNK',
+  'topics'          = 'SPLUNK_META',
   'key.ignore'      = 'true',
   'schema.ignore'   = 'true'
 );
@@ -123,6 +124,7 @@ CREATE SINK CONNECTOR SINK_ELASTIC WITH (
 
 5. configure your Splunk UF's (outputs.conf) to send data to the HF in this docker-compose instance. e.g. 192.168.1.101:9997
 You should now be able to see data in both Splunk and ElastaicSearch from the Topic TOHECWITHSPLUNK.
+![image](Ksqldb.png)
 
 
 NOTE: in this instance the props.conf is configured to forward all data to kafka, including all splunk internal data. to filter to only specific sourcetypes you can do the following:
