@@ -53,7 +53,7 @@ The rest of the work will be done through Confluent Control Center, login by goi
 CREATE SOURCE CONNECTOR SYSLOG_TCP WITH (
   'connector.class' =  'io.confluent.connect.syslog.SyslogSourceConnector',
   'kafka.topic' =  'splunk-syslog-tcp',
-  'confluent.topic.bootstrap.servers' =  'broker = 29092',
+  'confluent.topic.bootstrap.servers' =  'broker:29092',
   'topic' = 'splunk-syslog-tcp',
   'producer.interceptor.classes' =  'io.confluent.monitoring.clients.interceptor.MonitoringProducerInterceptor',
   'value.converter' =  'org.apache.kafka.connect.json.JsonConverter',
