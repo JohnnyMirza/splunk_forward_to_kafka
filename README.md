@@ -117,17 +117,16 @@ CREATE SINK CONNECTOR SPLUNKSINK WITH (
 I'm using ksqlDB to create the connector but you can use the Kafka Connect REST API directly if you want to. Kafka Connect is part of Apache Kafka and you don't have to use ksqlDB to use Kafka Connect.
 [source,sql]
 ```
-CREATE SINK CONNECTOR SINK_ELASTIC WITH (
-  'connector.class' = 'io.confluent.connect.elasticsearch.ElasticsearchSinkConnector',
-  'connection.url'  = 'http://elasticsearch:9200',
-  'key.converter'   = 'org.apache.kafka.connect.storage.StringConverter',
-  'value.converter' =  'org.apache.kafka.connect.json.JsonConverter',
-  'type.name'       = '_doc',
-  'errors.tolerance' = 'all',
-  'topics'          = 'SPLUNK_META',
-  'key.ignore'      = 'true',
-  'schema.ignore'   = 'true'
-);
+CREATE SINK CONNECTOR SINK_ELASTIC_02 WITH (
+'connector.class'                     = 'io.confluent.connect.elasticsearch.ElasticsearchSinkConnector',
+'topics'                              = 'SPLUNK_META',
+'key.converter'                       = 'org.apache.kafka.connect.storage.StringConverter',
+'value.converter'                     = 'org.apache.kafka.connect.json.JsonConverter',
+'value.converter.schemas.enable'      = 'false',
+'connection.url'                      = 'http://elasticsearch:9200',
+'type.name'                           = '_doc',
+'key.ignore'                          = 'true',
+'schema.ignore'                       = 'true');
 ```
 
 5. configure your Splunk UF's (outputs.conf) to send data to the HF in this docker-compose instance. e.g. 192.168.1.101:9997
