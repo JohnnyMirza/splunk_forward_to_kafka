@@ -136,7 +136,7 @@ You should now be able to see data in both Splunk and ElastaicSearch from the To
 ![image](Ksqldb.png)
 
 6. Visualise your data in splunk or Elasticsearch
-- Splunk - http://localhost:8000
+- Splunk - http://localhost:8000. (admin/Password1)
 - Elastic - http://localhost:5601
 
 
