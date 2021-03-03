@@ -89,6 +89,7 @@ CREATE STREAM TOHECWITHSPLUNK AS SELECT
   SPLUNK_META.PAYLOAD['sourcetype'] `sourcetype`,
   SPLUNK_META.PAYLOAD['source'] `source`,
   SPLUNK_META.PAYLOAD['time'] `time`,
+  SPLUNK_META.PAYLOAD['index'] `index`,
   SPLUNK_META.PAYLOAD['event'] `event`,
   SPLUNK_META.PAYLOAD['host'] `host`
 FROM SPLUNK_META SPLUNK_META
