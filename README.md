@@ -78,7 +78,7 @@ CREATE STREAM SPLUNK (
 
 [source,sql]
 ```
-CREATE STREAM SPLUNK_META AS SELECT SPLIT_TO_MAP(rawMessage, '||', '=') PAYLOAD
+CREATE STREAM SPLUNK_META AS SELECT SPLIT_TO_MAP(rawMessage, '||', '¥') PAYLOAD
 FROM SPLUNK
 EMIT CHANGES;
 ```
@@ -150,5 +150,11 @@ change this
 [(?::){0}*] to [(?::){0}yoursourcetype*]
 /opt/splunk/bin/splunk restart
 ```
+**## For Multiline events use the below SEDCMD in the required sourcetype stanza to replace \n\r with a tab
+```
+SEDCMD-LF = s/(?ims)\n/ /g
+SEDCMD-CR = s/(?ims)\r/ /g
+```
+
 -TBD
 -Create eventgen with zeek data
